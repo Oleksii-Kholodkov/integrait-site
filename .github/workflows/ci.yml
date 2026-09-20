@@ -3,6 +3,8 @@ name: CI
 on:
   pull_request:
     branches: [main]
+  push:
+    branches: [main]
 
 jobs:
   build-and-verify:
@@ -34,8 +36,9 @@ jobs:
       - name: Dependency vulnerability scan
         run: npm audit --audit-level=high
 
-      # Gate: Traceability
+      # Gate: Traceability (PR only — a push to main is already-merged history)
       - name: Check traceability artifact
+        if: github.event_name == 'pull_request'
         run: |
           changed=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
           if ! echo "$changed" | grep -q '^work/.*/traceability.md$'; then
