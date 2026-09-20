@@ -1,0 +1,8 @@
+# Non-routine paths per pilot-scope.md §4 — require human review/approval.
+# See sdlc-ai-native/pilot-scope.md in the knowledge-operations repo for rationale.
+
+/astro.config.mjs        @Oleksii-Kholodkov
+/.github/                @Oleksii-Kholodkov
+/package.json            @Oleksii-Kholodkov
+/package-lock.json       @Oleksii-Kholodkov
+/CODEOWNERS               @Oleksii-Kholodkov
