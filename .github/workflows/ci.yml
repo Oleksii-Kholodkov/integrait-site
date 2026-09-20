@@ -33,7 +33,7 @@ jobs:
         run: |
           npx --yes serve dist -l 4321 &
           sleep 2
-          npx --yes @axe-core/cli http://localhost:4321 --exit
+          npx --yes @axe-core/cli http://localhost:4321 --exit --chrome-options="--no-sandbox,--headless=new,--disable-gpu"
 
       # Gate: Security
       - name: Dependency vulnerability scan
