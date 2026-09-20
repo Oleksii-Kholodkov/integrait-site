@@ -30,7 +30,10 @@ jobs:
 
       # Gate: Accessibility
       - name: Accessibility scan
-        run: npx --yes @axe-core/cli dist --exit
+        run: |
+          npx --yes serve dist -l 4321 &
+          sleep 2
+          npx --yes @axe-core/cli http://localhost:4321 --exit
 
       # Gate: Security
       - name: Dependency vulnerability scan
