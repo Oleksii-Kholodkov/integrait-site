@@ -16,5 +16,9 @@
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "html-validate": "^11.4.0",
+    "pa11y": "^10.0.0"
   }
 }

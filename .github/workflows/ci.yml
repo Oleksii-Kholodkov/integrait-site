@@ -26,11 +26,11 @@ jobs:
 
       # Gate: Link/HTML validation
       - name: Validate HTML and links
-        run: npx --yes html-validate 'dist/**/*.html'
+        run: npx html-validate 'dist/**/*.html'
 
       # Gate: Accessibility
       - name: Accessibility scan
-        run: npx --yes pa11y --standard WCAG2AA -c pa11y.json dist/index.html
+        run: npx pa11y --standard WCAG2AA -c pa11y.json dist/index.html
 
       # Gate: Security
       - name: Dependency vulnerability scan
