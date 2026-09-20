@@ -30,7 +30,7 @@ jobs:
 
       # Gate: Accessibility
       - name: Accessibility scan
-        run: npx --yes pa11y --standard WCAG2AA dist/index.html
+        run: npx --yes pa11y --standard WCAG2AA -c pa11y.json dist/index.html
 
       # Gate: Security
       - name: Dependency vulnerability scan
