@@ -10,6 +10,8 @@
 | HTML validation | pass | `npm exec -- html-validate dist/index.html dist/de/index.html` |
 | Accessibility | pass | Pa11y WCAG2AA on both routes; no issues found |
 | Production dependency security | pass | `npm audit --omit=dev --audit-level=high`; zero vulnerabilities |
+| GitHub CI | pass | [CI run 37142250123](https://github.com/Oleksii-Kholodkov/integrait-site/actions/runs/37142250123) succeeded on `main` |
+| GitHub Pages deployment | pass | [Deploy run 37142280529](https://github.com/Oleksii-Kholodkov/integrait-site/actions/runs/37142280529) succeeded; both public routes verified |
 | Full dependency audit | known finding | `npm audit` still reports GHSA-ch52-4w7c-c8xp in Astro's build-only `http-cache-semantics@4.2.0`; advisory has no patched release |
 | Traceability check | not applicable locally | CI runs this check only on pull requests; work-item traceability artifact is present |
 

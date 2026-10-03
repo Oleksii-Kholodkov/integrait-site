@@ -10,5 +10,5 @@
 | Implementation | package.json; package-lock.json; .github/workflows/ci.yml | complete |
 | Verification | work/003-production-security-gate/verification-report.md | complete |
 | Approval (if non-routine) | work/003-production-security-gate/decision-log.md | recorded |
-| Deploy | GitHub Pages workflow after successful CI on main | pending |
-| Monitoring | GitHub Actions and Pages deployment status | pending |
+| Deploy | GitHub Pages deployment run 37142280529 after CI run 37142250123 | complete |
+| Monitoring | English and German Pages URLs fetched successfully after deployment | initial check complete |

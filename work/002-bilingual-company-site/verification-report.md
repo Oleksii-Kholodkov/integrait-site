@@ -10,6 +10,7 @@
 | Link/HTML validation | pass | `npm exec -- html-validate dist/index.html dist/de/index.html` |
 | Accessibility | pass | Pa11y WCAG2AA scans of both generated pages; no issues found |
 | Security scan | pass | `npm audit --omit=dev --audit-level=high` reports zero production dependency vulnerabilities |
+| Deploy | pass | GitHub Actions Deploy run 37142280529 succeeded; English and German Pages routes verified live |
 | Traceability check | not run | Work-item traceability artifact exists; the repository gate runs in pull-request CI |
 
 ## Overall Result

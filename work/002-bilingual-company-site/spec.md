@@ -16,7 +16,7 @@ Replace the empty site scaffold with an accessible, responsive landing page that
 - [x] Build, HTML validation, and accessibility checks pass for both language routes.
 - [ ] The production dependency audit has no high-severity findings.
 - [x] No new dependencies, data-collection form, analytics, tracking scripts, or fabricated contact details are introduced.
-- [ ] The primary path is usable on the GitHub Pages project site without changing deployment configuration.
+- [x] The primary path is usable on the GitHub Pages project site without changing deployment configuration.
 
 ## Assumptions
 
