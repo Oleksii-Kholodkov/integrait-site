@@ -7,8 +7,9 @@
 
 1. Replace the placeholder page with a shared responsive landing-page component and English default route.
 2. Add a German-language route with matching content structure and working locale navigation.
-3. Build the static site and validate generated HTML and accessibility on both routes.
-4. Review production artifacts, local paths, and responsive rendering; record verification evidence.
+3. Configure Astro's public site URL and project base path for GitHub Pages.
+4. Build the static site and validate generated HTML and accessibility on both routes.
+5. Review production artifacts, CSS/asset paths, and responsive rendering; record verification evidence.
 
 ## Dependencies
 

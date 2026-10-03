@@ -1,7 +1,7 @@
 # Spec: Bilingual Company Landing Page
 
 **Work item ID:** 002-bilingual-company-site
-**Classification:** routine
+**Classification:** non-routine
 **Source:** Owner request to create a production-ready Integrait company website; owner specified international audience, English as primary language, and German as the local-language alternative.
 
 ## Requirement Summary
@@ -16,7 +16,7 @@ Replace the empty site scaffold with an accessible, responsive landing page that
 - [x] Build, HTML validation, and accessibility checks pass for both language routes.
 - [ ] The production dependency audit has no high-severity findings.
 - [x] No new dependencies, data-collection form, analytics, tracking scripts, or fabricated contact details are introduced.
-- [x] The primary path is usable on the GitHub Pages project site without changing deployment configuration.
+- [x] The primary path, stylesheets, and language routes work under the GitHub Pages project base `/integrait-site/`.
 
 ## Assumptions
 
@@ -28,3 +28,7 @@ Replace the empty site scaffold with an accessible, responsive landing page that
 
 - A real contact destination and business/legal details are not yet available; the site cannot be treated as launch-complete for lead conversion or German legal publication until those are supplied and reviewed.
 - Broad positioning may need refinement against a specific target segment and offer.
+
+## Non-Routine Justification
+
+The GitHub Pages project path requires `astro.config.mjs` to set the public `site` and `/integrait-site` base. This protected configuration change was made in response to the owner's explicit request to fix the unstyled published page.
