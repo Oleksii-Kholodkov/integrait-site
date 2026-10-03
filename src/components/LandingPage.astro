@@ -1,0 +1,521 @@
+---
+interface Props {
+	locale: "en" | "de";
+}
+
+const { locale } = Astro.props;
+const copy = {
+	en: {
+		skip: "Skip to content",
+		navOffer: "What we do",
+		navProcess: "Approach",
+		navFaq: "FAQ",
+		language: "Deutsch",
+		languageLabel: "Read this site in German",
+		eyebrow: "AI that fits the way you work",
+		heroBefore: "Make AI useful",
+		heroAccent: "inside your business.",
+		heroAfter: "",
+		intro: "Find the right places for AI, connect the tools and workflows you already use, and keep people in control of the result.",
+		primaryAction: "Explore the approach",
+		secondaryAction: "What we can help with",
+		visualLabel: "A practical path from task to workflow",
+		visualKicker: "A WORKFLOW, MADE PRACTICAL",
+		visualInput: "A task your team repeats",
+		visualInputDetail: "The real work, not an AI demo",
+		visualMap: "Find the useful step",
+		visualMapDetail: "Fit the process before the tool",
+		visualBuild: "Connect and test",
+		visualBuildDetail: "Keep a person in the loop",
+		visualOutcome: "A workflow your team can use",
+		visualFoot: "Start small. Learn from the work.",
+		sectionLabel: "The useful question",
+		sectionTitle: "Start with the work. Not the hype.",
+		sectionText: "AI is not the answer to every business problem. The first step is understanding a real task, the people doing it, and what a better outcome would mean.",
+		servicesTitle: "From a good question to a working change.",
+		servicesIntro: "Practical AI integration is a sequence of decisions, not a tool installation.",
+		services: [
+			{ number: "01", title: "Find the fit", body: "Map a real workflow, its friction points, and the parts where AI could help. Be clear about where it should not be used." },
+			{ number: "02", title: "Design the workflow", body: "Choose an approach around your process, existing tools, data boundaries, and the people who will use it." },
+			{ number: "03", title: "Integrate and learn", body: "Build a bounded implementation, check it against agreed criteria, and use what you learn to decide what comes next." }
+		],
+		principleLabel: "A sensible way to work",
+		principleTitle: "Useful before impressive.",
+		principles: [
+			{ title: "People stay responsible", body: "Automation should make work clearer, not hide decisions or accountability." },
+			{ title: "Data has boundaries", body: "Decide what information a workflow needs and where it may go before connecting systems." },
+			{ title: "Evidence beats promises", body: "Define what to check before expanding a pilot or relying on its output." }
+		],
+		processLabel: "A first project",
+		processTitle: "One workflow is enough to begin.",
+		processIntro: "A useful starting point is a task people already understand and can evaluate.",
+		steps: [
+			{ number: "01", title: "Describe the task", body: "What happens today? Who is involved? What makes it slow, repetitive, or difficult?" },
+			{ number: "02", title: "Agree on the boundaries", body: "Set a clear goal, data limits, human checks, and a way to tell whether the change helped." },
+			{ number: "03", title: "Test before expanding", body: "Try the smallest useful version. Review the result with the people who do the work." }
+		],
+		faqLabel: "Common questions",
+		faqTitle: "A few things worth knowing.",
+		faqs: [
+			{ question: "Do we need to know which AI tool to use?", answer: "No. Start with the task and the constraints. The tool choice follows from what the workflow needs, not the other way around." },
+			{ question: "Does integrating AI mean replacing our existing systems?", answer: "Not necessarily. The first job is to understand the systems and process already in place, then see whether a focused connection or change makes sense." },
+			{ question: "Can AI make decisions without our team?", answer: "That depends on the task and the risks. Human review and approval boundaries should be agreed before a workflow is put into use." },
+			{ question: "What should we bring to a first conversation?", answer: "One concrete task that takes time or creates friction, a sense of what a better result would look like, and any important data or operational constraints." }
+		],
+		closingLabel: "Start with one real task",
+		closingTitle: "Find out where AI could actually help.",
+		closingText: "Bring a workflow your team knows well. The first step is to understand it, not to promise that AI can solve everything.",
+		closingAction: "Back to the approach",
+		footerLine: "Practical AI integration for real business workflows.",
+		metaDescription: "Integrait helps businesses explore, design, and integrate practical AI workflows around real work and clear boundaries.",
+		workflowAlt: "A workflow moves from a repeated team task, through process mapping and a human-reviewed test, to a usable workflow."
+	},
+	de: {
+		skip: "Zum Inhalt springen",
+		navOffer: "Leistungen",
+		navProcess: "Vorgehen",
+		navFaq: "Fragen",
+		language: "English",
+		languageLabel: "Diese Seite auf Englisch lesen",
+		eyebrow: "KI, die zu Ihrer Arbeit passt",
+		heroBefore: "KI sinnvoll",
+		heroAccent: "im Unternehmen einsetzen.",
+		heroAfter: "",
+		intro: "Die passenden Einsatzbereiche finden, bestehende Werkzeuge und Abläufe verbinden und Menschen die Kontrolle überlassen.",
+		primaryAction: "Unser Vorgehen ansehen",
+		secondaryAction: "Unsere Leistungen",
+		visualLabel: "Ein praktischer Weg von der Aufgabe zum Arbeitsablauf",
+		visualKicker: "EIN ARBEITSABLAUF, PRAKTISCH GEDACHT",
+		visualInput: "Eine wiederkehrende Aufgabe",
+		visualInputDetail: "Die echte Arbeit, keine KI-Demo",
+		visualMap: "Den sinnvollen Schritt finden",
+		visualMapDetail: "Erst den Ablauf verstehen, dann das Werkzeug wählen",
+		visualBuild: "Verbinden und testen",
+		visualBuildDetail: "Menschen bleiben eingebunden",
+		visualOutcome: "Ein nutzbarer Arbeitsablauf",
+		visualFoot: "Klein anfangen. Aus der Praxis lernen.",
+		sectionLabel: "Die entscheidende Frage",
+		sectionTitle: "Bei der Arbeit anfangen. Nicht beim Hype.",
+		sectionText: "KI ist nicht die Antwort auf jedes Geschäftsproblem. Zuerst geht es um eine konkrete Aufgabe, die beteiligten Menschen und die Frage, was ein besseres Ergebnis bedeutet.",
+		servicesTitle: "Von der guten Frage zur passenden Lösung.",
+		servicesIntro: "Praktische KI-Integration besteht aus mehreren Entscheidungen, nicht nur aus der Installation eines Werkzeugs.",
+		services: [
+			{ number: "01", title: "Den passenden Einsatz finden", body: "Einen konkreten Arbeitsablauf, seine Schwierigkeiten und mögliche Unterstützung durch KI verstehen. Auch klären, wo KI nicht eingesetzt werden sollte." },
+			{ number: "02", title: "Den Ablauf gestalten", body: "Eine Lösung passend zu Prozessen, vorhandenen Werkzeugen, Datengrenzen und den Menschen entwickeln, die damit arbeiten." },
+			{ number: "03", title: "Integrieren und lernen", body: "Eine klar begrenzte Umsetzung erstellen, anhand vereinbarter Kriterien prüfen und gemeinsam über die nächsten Schritte entscheiden." }
+		],
+		principleLabel: "Ein vernünftiger Ansatz",
+		principleTitle: "Nützlich vor beeindruckend.",
+		principles: [
+			{ title: "Menschen bleiben verantwortlich", body: "Automatisierung sollte Arbeit verständlicher machen, nicht Entscheidungen oder Verantwortung verbergen." },
+			{ title: "Daten brauchen Grenzen", body: "Vor einer Verbindung klären, welche Informationen ein Ablauf benötigt und wohin sie gelangen dürfen." },
+			{ title: "Belege statt Versprechen", body: "Vor einer Ausweitung festlegen, wie ein Pilot und seine Ergebnisse geprüft werden." }
+		],
+		processLabel: "Ein erstes Projekt",
+		processTitle: "Ein Arbeitsablauf reicht für den Anfang.",
+		processIntro: "Ein guter Start ist eine Aufgabe, die das Team kennt und deren Ergebnis es beurteilen kann.",
+		steps: [
+			{ number: "01", title: "Die Aufgabe beschreiben", body: "Was passiert heute? Wer ist beteiligt? Was macht die Aufgabe langsam, wiederholend oder schwierig?" },
+			{ number: "02", title: "Grenzen vereinbaren", body: "Ein klares Ziel, Datengrenzen, menschliche Prüfungen und messbare Kriterien festlegen." },
+			{ number: "03", title: "Vor der Ausweitung testen", body: "Die kleinste sinnvolle Variante ausprobieren und mit den Menschen auswerten, die die Arbeit erledigen." }
+		],
+		faqLabel: "Häufige Fragen",
+		faqTitle: "Das sollten Sie wissen.",
+		faqs: [
+			{ question: "Müssen wir schon wissen, welches KI-Werkzeug wir brauchen?", answer: "Nein. Zuerst geht es um die Aufgabe und ihre Rahmenbedingungen. Welches Werkzeug passt, ergibt sich daraus." },
+			{ question: "Müssen unsere bestehenden Systeme ersetzt werden?", answer: "Nicht unbedingt. Zuerst werden die vorhandenen Systeme und Abläufe betrachtet. Danach lässt sich beurteilen, ob eine gezielte Verbindung oder Änderung sinnvoll ist." },
+			{ question: "Darf die KI ohne unser Team Entscheidungen treffen?", answer: "Das hängt von Aufgabe und Risiken ab. Prüf- und Freigabegrenzen sollten vereinbart werden, bevor ein Ablauf eingesetzt wird." },
+			{ question: "Was sollten wir für ein erstes Gespräch mitbringen?", answer: "Eine konkrete Aufgabe, die Zeit kostet oder Schwierigkeiten macht, eine Vorstellung vom gewünschten Ergebnis und wichtige Daten- oder Betriebsgrenzen." }
+		],
+		closingLabel: "Mit einer konkreten Aufgabe starten",
+		closingTitle: "Herausfinden, wo KI wirklich helfen kann.",
+		closingText: "Bringen Sie einen Arbeitsablauf mit, den Ihr Team gut kennt. Zuerst geht es darum, ihn zu verstehen, nicht darum, KI als Allheilmittel zu versprechen.",
+		closingAction: "Zurück zum Vorgehen",
+		footerLine: "Praktische KI-Integration für echte Arbeitsabläufe.",
+		metaDescription: "Integrait unterstützt Unternehmen dabei, praktische KI-Arbeitsabläufe rund um konkrete Aufgaben und klare Grenzen zu planen und zu integrieren.",
+		workflowAlt: "Ein Arbeitsablauf führt von einer wiederkehrenden Teamaufgabe über Prozessanalyse und einen menschlich geprüften Test zu einem nutzbaren Ablauf."
+	}
+}[locale];
+
+const homeHref = locale === "en" ? "./" : "../";
+const otherLanguageHref = locale === "en" ? "./de/" : "../";
+const faviconHref = locale === "en" ? "./favicon.svg" : "../favicon.svg";
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={copy.metaDescription} />
+		<meta name="theme-color" content="#f5f7ee" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Integrait | Practical AI integration" />
+		<meta property="og:description" content={copy.metaDescription} />
+		<link rel="icon" type="image/svg+xml" href={faviconHref} />
+		<link rel="icon" href={locale === "en" ? "./favicon.ico" : "../favicon.ico"} />
+		<title>{locale === "en" ? "Integrait | Practical AI integration" : "Integrait | Praktische KI-Integration"}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">{copy.skip}</a>
+		<header class="site-header">
+			<div class="header-inner">
+				<a class="brand" href={homeHref} aria-label="Integrait home">
+					<span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+					<span>integrait</span>
+				</a>
+				<nav class="main-nav" aria-label={locale === "en" ? "Main navigation" : "Hauptnavigation"}>
+					<a href="#offer">{copy.navOffer}</a>
+					<a href="#process">{copy.navProcess}</a>
+					<a href="#faq">{copy.navFaq}</a>
+					<a class="language-link" href={otherLanguageHref} lang={locale === "en" ? "de" : "en"} aria-label={copy.languageLabel}>{copy.language}</a>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main">
+			<section class="hero section-wrap" aria-labelledby="hero-title">
+				<div class="hero-copy">
+					<p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>{copy.eyebrow}</p>
+					<h1 id="hero-title">{copy.heroBefore}<br /><span>{copy.heroAccent}</span></h1>
+					<p class="hero-intro">{copy.intro}</p>
+					<div class="hero-actions">
+						<a class="button button-dark" href="#process">{copy.primaryAction}<span aria-hidden="true">↘</span></a>
+						<a class="text-link" href="#offer">{copy.secondaryAction}<span aria-hidden="true">→</span></a>
+					</div>
+					<p class="hero-note">{locale === "en" ? "A clear first step. No AI for AI's sake." : "Ein klarer erster Schritt. Keine KI um der KI willen."}</p>
+				</div>
+
+				<figure class="workflow-figure" aria-label={copy.workflowAlt}>
+					<div class="workflow-heading">
+						<div><span class="mini-mark" aria-hidden="true"></span><span>{copy.visualKicker}</span></div>
+						<span class="workflow-index">01 / 03</span>
+					</div>
+					<div class="workflow-grid">
+						<div class="workflow-stage stage-input">
+							<span class="stage-number">01</span>
+							<span class="stage-icon icon-inbox" aria-hidden="true"><i></i><i></i><i></i></span>
+							<strong>{copy.visualInput}</strong>
+							<small>{copy.visualInputDetail}</small>
+						</div>
+						<div class="workflow-connector" aria-hidden="true"><span></span></div>
+						<div class="workflow-stage stage-map">
+							<span class="stage-number">02</span>
+							<span class="stage-icon icon-map" aria-hidden="true"><i></i><i></i><i></i></span>
+							<strong>{copy.visualMap}</strong>
+							<small>{copy.visualMapDetail}</small>
+						</div>
+						<div class="workflow-connector" aria-hidden="true"><span></span></div>
+						<div class="workflow-stage stage-test">
+							<span class="stage-number">03</span>
+							<span class="stage-icon icon-test" aria-hidden="true"><i></i><i></i></span>
+							<strong>{copy.visualBuild}</strong>
+							<small>{copy.visualBuildDetail}</small>
+						</div>
+					</div>
+					<div class="workflow-result">
+						<span class="result-check" aria-hidden="true">✓</span>
+						<div><strong>{copy.visualOutcome}</strong><small>{copy.visualFoot}</small></div>
+						<span class="result-spark" aria-hidden="true">✳</span>
+					</div>
+					<figcaption class="visually-hidden">{copy.visualLabel}</figcaption>
+				</figure>
+			</section>
+
+			<section class="intro-band" aria-labelledby="intro-title">
+				<div class="section-wrap intro-grid">
+					<p class="section-label">{copy.sectionLabel}<span> /</span></p>
+					<div><h2 id="intro-title">{copy.sectionTitle}</h2><p>{copy.sectionText}</p></div>
+					<div class="intro-stamp" aria-hidden="true"><span>AI</span><i>×</i><span>WORK</span></div>
+				</div>
+			</section>
+
+			<section class="offer-section section-wrap" id="offer" aria-labelledby="offer-title">
+				<div class="section-heading">
+					<div><p class="section-label">{copy.navOffer}<span> /</span></p><h2 id="offer-title">{copy.servicesTitle}</h2></div>
+					<p class="section-deck">{copy.servicesIntro}</p>
+				</div>
+				<div class="offer-grid">
+					{copy.services.map((service, index) => (
+						<article class:list={["offer-item", `offer-${index + 1}`]}>
+							<span class="item-number">{service.number}</span>
+							<h3>{service.title}</h3>
+							<p>{service.body}</p>
+							<span class="item-arrow" aria-hidden="true">↗</span>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="principles-section" aria-labelledby="principles-title">
+				<div class="section-wrap principles-layout">
+					<div class="principles-heading"><p class="section-label">{copy.principleLabel}<span> /</span></p><h2 id="principles-title">{copy.principleTitle}</h2><span class="principle-mark" aria-hidden="true">i.</span></div>
+					<div class="principles-list">
+						{copy.principles.map((principle, index) => (
+							<article class="principle-row">
+								<span class="principle-number">0{index + 1}</span>
+								<div><h3>{principle.title}</h3><p>{principle.body}</p></div>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="process-section section-wrap" id="process" aria-labelledby="process-title">
+				<div class="section-heading process-heading">
+					<div><p class="section-label">{copy.processLabel}<span> /</span></p><h2 id="process-title">{copy.processTitle}</h2></div>
+					<p class="section-deck">{copy.processIntro}</p>
+				</div>
+				<ol class="process-list">
+					{copy.steps.map((step) => (
+						<li><span class="process-number">{step.number}</span><div><h3>{step.title}</h3><p>{step.body}</p></div><span class="process-line" aria-hidden="true"></span></li>
+					))}
+				</ol>
+			</section>
+
+			<section class="faq-section" id="faq" aria-labelledby="faq-title">
+				<div class="section-wrap faq-layout">
+					<div class="faq-heading"><p class="section-label">{copy.faqLabel}<span> /</span></p><h2 id="faq-title">{copy.faqTitle}</h2></div>
+					<div class="faq-list">
+						{copy.faqs.map((faq) => (
+							<details><summary>{faq.question}<span aria-hidden="true"></span></summary><p>{faq.answer}</p></details>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section class="closing-section section-wrap" aria-labelledby="closing-title">
+				<div class="closing-art" aria-hidden="true"><span class="closing-orbit orbit-one"></span><span class="closing-orbit orbit-two"></span><span class="closing-core">i</span><span class="closing-node node-one"></span><span class="closing-node node-two"></span><span class="closing-node node-three"></span></div>
+				<div class="closing-copy"><p class="section-label">{copy.closingLabel}<span> /</span></p><h2 id="closing-title">{copy.closingTitle}</h2><p>{copy.closingText}</p><a class="button button-light" href="#process">{copy.closingAction}<span aria-hidden="true">↑</span></a></div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="section-wrap footer-inner">
+				<a class="brand footer-brand" href={homeHref} aria-label="Integrait home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>integrait</span></a>
+				<p>{copy.footerLine}</p>
+				<a class="footer-top" href="#main">{locale === "en" ? "Back to top" : "Nach oben"}<span aria-hidden="true">↑</span></a>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:global(*) { box-sizing: border-box; }
+	:global(html) { scroll-behavior: smooth; background: #f5f7ee; }
+	:global(body) { margin: 0; color: #18211d; background: #f5f7ee; font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.6; }
+	:global(a) { color: inherit; }
+	:global(a:focus-visible), :global(summary:focus-visible) { outline: 3px solid #e3543f; outline-offset: 4px; }
+	:global(::selection) { color: #18211d; background: #c6ed50; }
+	:global(h1), :global(h2), :global(h3), :global(p), :global(figure) { margin-top: 0; }
+	:global(h1), :global(h2) { font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif; font-weight: 500; letter-spacing: 0; }
+	:global(h1) { max-width: 680px; margin-bottom: 25px; font-size: 68px; line-height: 1.04; }
+	:global(h1 span) { color: #47745b; }
+	:global(h2) { margin-bottom: 20px; font-size: 48px; line-height: 1.12; }
+	:global(h3) { margin-bottom: 10px; font-size: 20px; line-height: 1.3; }
+	.skip-link { position: absolute; z-index: 10; top: 8px; left: 8px; padding: 10px 14px; transform: translateY(-150%); color: #fff; background: #18211d; }
+	.skip-link:focus { transform: translateY(0); }
+	.section-wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+	.site-header { border-bottom: 1px solid #dfe4d7; }
+	.header-inner { display: flex; width: min(1320px, calc(100% - 64px)); height: 78px; margin: auto; align-items: center; justify-content: space-between; }
+	.brand { display: inline-flex; gap: 10px; align-items: center; text-decoration: none; font-size: 21px; font-weight: 750; line-height: 1; }
+	.brand-mark { display: inline-flex; width: 28px; height: 28px; padding: 5px; gap: 2px; align-items: flex-end; justify-content: center; border-radius: 4px; background: #c6ed50; }
+	.brand-mark span { width: 4px; border-radius: 2px 2px 1px 1px; background: #18211d; }
+	.brand-mark span:nth-child(1) { height: 8px; }
+	.brand-mark span:nth-child(2) { height: 15px; }
+	.brand-mark span:nth-child(3) { height: 11px; }
+	.main-nav { display: flex; gap: 32px; align-items: center; }
+	.main-nav a { text-decoration: none; font-size: 14px; font-weight: 600; }
+	.main-nav a:hover, .text-link:hover, .footer-top:hover { color: #47745b; }
+	.main-nav .language-link { display: inline-flex; min-height: 36px; padding: 5px 12px; align-items: center; border: 1px solid #cdd4c6; border-radius: 3px; }
+	.hero { display: grid; min-height: 650px; padding-top: 84px; padding-bottom: 88px; gap: 56px; align-items: center; grid-template-columns: 1.03fr .97fr; }
+	.hero-copy { position: relative; z-index: 1; }
+	.eyebrow, .section-label { display: flex; margin-bottom: 24px; gap: 10px; align-items: center; color: #47745b; font-size: 12px; font-weight: 750; text-transform: uppercase; }
+	.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #e3543f; }
+	.hero-intro { max-width: 520px; margin-bottom: 28px; color: #46514a; font-size: 19px; line-height: 1.6; }
+	.hero-actions { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+	.button { display: inline-flex; min-height: 52px; padding: 0 18px; gap: 18px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 3px; text-decoration: none; font-size: 14px; font-weight: 700; transition: transform 160ms ease, background-color 160ms ease; }
+	.button:hover { transform: translateY(-2px); }
+	.button span { font-size: 18px; }
+	.button-dark { color: #fff; background: #18211d; }
+	.button-dark:hover { background: #345343; }
+	.text-link { display: inline-flex; gap: 9px; align-items: center; text-decoration: none; font-size: 14px; font-weight: 700; }
+	.text-link span { color: #e3543f; font-size: 20px; }
+	.hero-note { margin-top: 24px; margin-bottom: 0; color: #68726b; font-size: 13px; }
+	.workflow-figure { position: relative; min-height: 395px; margin-bottom: 0; padding: 24px; overflow: hidden; border: 1px solid #d5dccd; border-radius: 6px; background: #fffef9; box-shadow: 12px 12px 0 #e5eadb; animation: appear 650ms both; }
+	.workflow-figure::before { position: absolute; top: 0; right: 0; width: 140px; height: 140px; border-radius: 0 0 0 100%; background: #f0f5e7; content: ""; }
+	.workflow-heading { position: relative; display: flex; min-height: 36px; margin-bottom: 34px; align-items: center; justify-content: space-between; color: #53635a; font-size: 10px; font-weight: 800; letter-spacing: 0; }
+	.workflow-heading > div { display: flex; gap: 9px; align-items: center; }
+	.mini-mark { width: 9px; height: 9px; border-radius: 2px; background: #e3543f; transform: rotate(45deg); }
+	.workflow-index { color: #9aa39a; font-variant-numeric: tabular-nums; }
+	.workflow-grid { position: relative; display: grid; gap: 10px; align-items: center; grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr) 16px minmax(0, 1fr); }
+	.workflow-stage { position: relative; display: flex; min-height: 137px; padding: 18px 15px 14px; flex-direction: column; align-items: flex-start; border: 1px solid #e0e5db; border-radius: 4px; background: #fff; }
+	.stage-number { position: absolute; top: 10px; right: 10px; color: #a0a89e; font-size: 10px; font-variant-numeric: tabular-nums; }
+	.stage-icon { display: flex; width: 31px; height: 31px; margin-bottom: 12px; align-items: center; justify-content: center; border-radius: 8px; background: #edf3e4; }
+	.icon-inbox { flex-direction: column; gap: 3px; align-items: flex-start; padding-left: 7px; }
+	.icon-inbox i { width: 13px; height: 2px; border-radius: 2px; background: #47745b; }
+	.icon-inbox i:nth-child(2) { width: 17px; }
+	.icon-inbox i:nth-child(3) { width: 10px; }
+	.icon-map { position: relative; gap: 3px; }
+	.icon-map i { width: 5px; height: 5px; border: 1px solid #47745b; border-radius: 50%; background: #fff; }
+	.icon-map i:nth-child(2) { width: 7px; height: 7px; background: #c6ed50; }
+	.icon-test { gap: 3px; }
+	.icon-test i { width: 7px; height: 17px; border-radius: 4px; background: #47745b; transform: rotate(35deg); }
+	.icon-test i:nth-child(2) { height: 12px; background: #e3543f; transform: rotate(-35deg); }
+	.workflow-stage strong { max-width: 170px; font-size: 13px; line-height: 1.35; }
+	.workflow-stage small { margin-top: 5px; color: #718077; font-size: 10px; line-height: 1.4; }
+	.stage-map { background: #f8faef; }
+	.workflow-connector { position: relative; height: 1px; background: #cad3c3; }
+	.workflow-connector span { position: absolute; top: -3px; right: 0; width: 7px; height: 7px; border-top: 1px solid #7c8b7d; border-right: 1px solid #7c8b7d; transform: rotate(45deg); }
+	.workflow-result { display: flex; min-height: 64px; margin-top: 18px; padding: 12px 14px; gap: 12px; align-items: center; border: 1px solid #dce5d0; border-radius: 4px; background: #f2f7e8; }
+	.result-check { display: grid; width: 27px; height: 27px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #fff; background: #47745b; font-size: 14px; }
+	.workflow-result div { display: flex; min-width: 0; flex-direction: column; }
+	.workflow-result strong { font-size: 12px; line-height: 1.4; }
+	.workflow-result small { color: #66756b; font-size: 10px; }
+	.result-spark { margin-left: auto; color: #e3543f; font-size: 22px; }
+	.intro-band { padding: 70px 0; background: #e9efe1; }
+	.intro-grid { display: grid; gap: 35px; align-items: start; grid-template-columns: .65fr 1.35fr .45fr; }
+	.section-label { margin-bottom: 17px; font-size: 11px; }
+	.section-label span { color: #e3543f; }
+	.intro-grid h2 { max-width: 640px; margin-bottom: 15px; }
+	.intro-grid > div > p { max-width: 650px; margin-bottom: 0; color: #4d5a50; font-size: 17px; }
+	.intro-stamp { display: flex; width: 104px; height: 104px; margin: 7px auto 0; gap: 3px; align-items: center; justify-content: center; border: 1px solid #bcc9b7; border-radius: 50%; color: #47745b; font-size: 11px; font-weight: 800; transform: rotate(-12deg); }
+	.intro-stamp i { color: #e3543f; font-size: 16px; font-style: normal; }
+	.offer-section { padding-top: 102px; padding-bottom: 112px; }
+	.section-heading { display: flex; margin-bottom: 40px; gap: 56px; align-items: end; justify-content: space-between; }
+	.section-heading h2 { max-width: 660px; margin-bottom: 0; }
+	.section-deck { max-width: 330px; margin-bottom: 4px; color: #5c685f; }
+	.offer-grid { display: grid; border-top: 1px solid #ccd5c6; border-bottom: 1px solid #ccd5c6; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.offer-item { position: relative; min-height: 255px; padding: 26px 25px 34px 0; }
+	.offer-item + .offer-item { padding-left: 25px; border-left: 1px solid #ccd5c6; }
+	.item-number { display: inline-grid; width: 35px; height: 35px; margin-bottom: 37px; place-items: center; border-radius: 50%; color: #305442; background: #dceac2; font-size: 11px; font-weight: 750; }
+	.offer-2 .item-number { color: #8b3529; background: #f8dfd6; }
+	.offer-3 .item-number { color: #405a77; background: #dce7f0; }
+	.offer-item h3 { margin-bottom: 9px; }
+	.offer-item p { max-width: 320px; margin-bottom: 0; color: #5d685f; font-size: 14px; }
+	.item-arrow { position: absolute; right: 20px; bottom: 25px; color: #8b998b; font-size: 20px; }
+	.principles-section { padding: 88px 0 94px; color: #f4f6ed; background: #1c2922; }
+	.principles-layout { display: grid; gap: 90px; grid-template-columns: .8fr 1.2fr; }
+	.principles-heading { position: relative; }
+	.principles-heading .section-label { color: #c6ed50; }
+	.principles-heading h2 { max-width: 390px; margin-bottom: 0; }
+	.principle-mark { display: inline-block; margin-top: 43px; color: #c6ed50; font-family: Georgia, serif; font-size: 67px; line-height: 1; }
+	.principles-list { border-top: 1px solid #526158; }
+	.principle-row { display: grid; min-height: 118px; padding: 24px 0; gap: 18px; border-bottom: 1px solid #526158; grid-template-columns: 40px 1fr; }
+	.principle-number { padding-top: 3px; color: #c6ed50; font-size: 11px; font-variant-numeric: tabular-nums; }
+	.principle-row h3 { margin-bottom: 5px; font-size: 18px; }
+	.principle-row p { max-width: 520px; margin-bottom: 0; color: #c1cbc0; font-size: 14px; }
+	.process-section { padding-top: 104px; padding-bottom: 115px; }
+	.process-heading { margin-bottom: 54px; }
+	.process-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid #ccd5c6; }
+	.process-list li { position: relative; display: grid; min-height: 128px; padding: 27px 0; gap: 20px; align-items: start; border-bottom: 1px solid #ccd5c6; grid-template-columns: 52px 1fr 150px; }
+	.process-number { color: #47745b; font-size: 13px; font-variant-numeric: tabular-nums; }
+	.process-list h3 { margin-bottom: 6px; }
+	.process-list p { max-width: 640px; margin-bottom: 0; color: #5d685f; font-size: 14px; }
+	.process-line { align-self: center; width: 100%; height: 1px; background: linear-gradient(90deg, #c6ed50 0 35%, #ccd5c6 35% 100%); }
+	.faq-section { padding: 86px 0 95px; background: #e9efe1; }
+	.faq-layout { display: grid; gap: 80px; grid-template-columns: .8fr 1.2fr; }
+	.faq-heading h2 { max-width: 360px; }
+	.faq-list { border-top: 1px solid #bdcabb; }
+	.faq-list details { border-bottom: 1px solid #bdcabb; }
+	.faq-list summary { display: flex; min-height: 72px; padding: 18px 0; gap: 20px; align-items: center; justify-content: space-between; cursor: pointer; font-size: 16px; font-weight: 700; list-style: none; }
+	.faq-list summary::-webkit-details-marker { display: none; }
+	.faq-list summary span { position: relative; width: 22px; height: 22px; flex: 0 0 auto; }
+	.faq-list summary span::before, .faq-list summary span::after { position: absolute; top: 10px; left: 3px; width: 16px; height: 2px; background: #47745b; content: ""; }
+	.faq-list summary span::after { transform: rotate(90deg); transition: transform 160ms ease; }
+	.faq-list details[open] summary span::after { transform: rotate(0); }
+	.faq-list details p { max-width: 600px; margin: -2px 38px 22px 0; color: #536056; font-size: 14px; }
+	.closing-section { position: relative; display: grid; min-height: 405px; margin-top: 86px; margin-bottom: 86px; padding: 55px 65px; overflow: hidden; gap: 50px; align-items: center; color: #f5f7ee; background: #47745b; grid-template-columns: .8fr 1.2fr; }
+	.closing-copy { position: relative; z-index: 1; }
+	.closing-copy .section-label { color: #d7f386; }
+	.closing-copy h2 { max-width: 560px; margin-bottom: 15px; font-size: 46px; }
+	.closing-copy > p:not(.section-label) { max-width: 560px; margin-bottom: 23px; color: #e1e9dc; }
+	.button-light { color: #1c2922; background: #c6ed50; }
+	.button-light:hover { background: #d6f77d; }
+	.closing-art { position: relative; display: grid; width: 260px; height: 260px; margin: auto; place-items: center; }
+	.closing-orbit { position: absolute; inset: 0; border: 1px solid #9bb7a2; border-radius: 50%; }
+	.orbit-two { inset: 28px; border-color: #abc5ad; }
+	.closing-core { display: grid; width: 75px; height: 75px; place-items: center; border-radius: 50%; color: #1c2922; background: #c6ed50; font-family: Georgia, serif; font-size: 42px; }
+	.closing-node { position: absolute; width: 13px; height: 13px; border: 3px solid #47745b; border-radius: 50%; background: #f08b6d; }
+	.node-one { top: 14px; left: 117px; }
+	.node-two { right: 25px; bottom: 55px; background: #c6ed50; }
+	.node-three { bottom: 27px; left: 52px; background: #f4f6ed; }
+	.site-footer { padding: 26px 0; border-top: 1px solid #dfe4d7; }
+	.footer-inner { display: flex; min-height: 42px; gap: 25px; align-items: center; justify-content: space-between; }
+	.footer-brand { font-size: 18px; }
+	.footer-brand .brand-mark { width: 24px; height: 24px; }
+	.footer-inner p { margin: 0; color: #68726b; font-size: 12px; }
+	.footer-top { display: inline-flex; gap: 8px; align-items: center; text-decoration: none; font-size: 12px; font-weight: 700; }
+	.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+	@keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+	@media (max-width: 960px) {
+		:global(h1) { font-size: 58px; }
+		:global(h2) { font-size: 42px; }
+		.hero { min-height: auto; padding-top: 70px; padding-bottom: 76px; gap: 38px; }
+		.workflow-figure { min-height: 360px; padding: 20px; }
+		.workflow-grid { gap: 8px; grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr) 12px minmax(0, 1fr); }
+		.workflow-stage { min-height: 145px; padding: 16px 11px 12px; }
+		.principles-layout { gap: 50px; }
+		.closing-section { padding-inline: 42px; gap: 25px; }
+	}
+	@media (max-width: 700px) {
+		:global(h1) { max-width: 560px; font-size: 48px; }
+		:global(h2) { font-size: 38px; }
+		.section-wrap { width: min(100% - 40px, 560px); }
+		.header-inner { width: calc(100% - 40px); height: 70px; }
+		.main-nav { gap: 15px; }
+		.main-nav > a:not(.language-link) { display: none; }
+		.main-nav .language-link { min-height: 34px; padding-inline: 10px; }
+		.hero { padding-top: 56px; padding-bottom: 62px; gap: 42px; grid-template-columns: 1fr; }
+		.hero-intro { font-size: 17px; }
+		.workflow-figure { min-height: 0; padding: 20px; box-shadow: 7px 7px 0 #e5eadb; }
+		.workflow-heading { margin-bottom: 22px; }
+		.workflow-grid { display: flex; gap: 8px; align-items: stretch; flex-direction: column; }
+		.workflow-stage { display: grid; min-height: 68px; padding: 11px 14px; gap: 2px 10px; align-items: center; grid-template-columns: 31px minmax(0, 1fr); }
+		.workflow-stage .stage-icon { margin-bottom: 0; grid-row: 1 / span 2; }
+		.workflow-stage strong { max-width: none; padding-right: 18px; align-self: end; font-size: 12px; }
+		.workflow-stage small { margin-top: 0; align-self: start; font-size: 10px; }
+		.workflow-connector { width: 1px; height: 9px; margin-left: 29px; flex: 0 0 auto; background: #cad3c3; }
+		.workflow-connector span { display: none; }
+		.workflow-result { margin-top: 13px; }
+		.intro-band { padding: 55px 0; }
+		.intro-grid { gap: 15px; grid-template-columns: 1fr; }
+		.intro-grid h2 { max-width: 520px; }
+		.intro-stamp { display: none; }
+		.offer-section, .process-section { padding-top: 68px; padding-bottom: 76px; }
+		.section-heading { margin-bottom: 28px; gap: 13px; align-items: start; flex-direction: column; }
+		.section-deck { margin: 0; }
+		.offer-grid { grid-template-columns: 1fr; }
+		.offer-item { min-height: 0; padding: 22px 0 36px; }
+		.offer-item + .offer-item { padding-left: 0; border-left: 0; border-top: 1px solid #ccd5c6; }
+		.item-number { margin-bottom: 17px; }
+		.offer-item p { max-width: 470px; }
+		.principles-section { padding: 65px 0 70px; }
+		.principles-layout, .faq-layout { gap: 32px; grid-template-columns: 1fr; }
+		.principles-heading h2, .faq-heading h2 { max-width: 490px; }
+		.principle-mark { display: none; }
+		.principle-row { min-height: 105px; }
+		.process-heading { margin-bottom: 30px; }
+		.process-list li { min-height: 0; padding: 23px 0; gap: 11px; grid-template-columns: 38px 1fr; }
+		.process-line { display: none; }
+		.faq-section { padding: 64px 0 72px; }
+		.faq-list summary { font-size: 15px; }
+		.closing-section { width: 100%; min-height: 0; margin: 0; padding: 48px 20px 54px; gap: 25px; grid-template-columns: 1fr; }
+		.closing-art { width: 180px; height: 180px; grid-row: 2; }
+		.closing-copy h2 { font-size: 39px; }
+		.footer-inner { align-items: flex-start; flex-wrap: wrap; }
+		.footer-inner p { width: calc(100% - 120px); order: 3; }
+	}
+	@media (max-width: 380px) {
+		:global(h1) { font-size: 42px; }
+		:global(h2) { font-size: 34px; }
+		.workflow-figure { padding: 15px; }
+		.workflow-figure { padding: 15px; }
+		.hero-actions { gap: 17px; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) { scroll-behavior: auto; }
+		*, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+	}
+</style>

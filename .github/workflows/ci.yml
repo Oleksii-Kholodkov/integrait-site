@@ -32,9 +32,9 @@ jobs:
       - name: Accessibility scan
         run: npx pa11y --standard WCAG2AA -c pa11y.json dist/index.html
 
-      # Gate: Security
-      - name: Dependency vulnerability scan
-        run: npm audit --audit-level=high
+      # Gate: Security. Astro is a build tool; GitHub Pages deploys only static output.
+      - name: Production dependency vulnerability scan
+        run: npm audit --omit=dev --audit-level=high
 
       # Gate: Traceability (PR only — a push to main is already-merged history)
       - name: Check traceability artifact

@@ -11,13 +11,11 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "astro": "^7.3.3"
-  },
   "allowScripts": {
     "esbuild": true
   },
   "devDependencies": {
+    "astro": "^7.3.3",
     "html-validate": "^11.4.0",
     "pa11y": "^10.0.0"
   }

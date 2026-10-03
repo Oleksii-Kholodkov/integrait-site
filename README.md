@@ -2,6 +2,8 @@
 
 AI integration for business. This repository is the pilot for the AI-native SDLC defined in the `knowledge-operations` repo (`sdlc-ai-native/`).
 
+The site is English-first, with a German-language version at `/de/`. It currently provides general, factual service positioning and does not collect visitor data.
+
 ## Stack
 
 - [Astro](https://astro.build) (static output)
@@ -17,7 +19,7 @@ npm run build    # production build to ./dist
 
 ## SDLC Process
 
-Every change follows the workflow defined in `sdlc-ai-native/requirements-architecture.md` (in `knowledge-operations`):
+Every change follows the workflow defined in `sdlc-ai-native/03-requirements-architecture.md` (in `knowledge-operations`):
 
 1. Create `work/<id>/spec.md` from `templates/spec.md` — requirement + acceptance criteria + routine/non-routine classification.
 2. Create `work/<id>/plan.md` from `templates/plan.md`.
